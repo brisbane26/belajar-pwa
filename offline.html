@@ -1,164 +1,198 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Offline</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Offline</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 
-  body {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    font-family: 'Baloo 2', cursive, Arial, sans-serif;
-    margin: 0; padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-  }
-
-  h1 {
-    font-size: 2.8rem;
-    margin-bottom: 6px;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-  }
-
-  h2 {
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    font-style: italic;
-    color: #dcdcdc;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  }
-
-  .input-group {
-    display: flex;
-    margin-bottom: 20px;
-    max-width: 350px;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  input[type="text"] {
-    flex-grow: 1;
-    padding: 12px 18px;
-    font-size: 1.1rem;
-    border-radius: 40px 0 0 40px;
-    border: none;
-    outline: none;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-  }
-
-  button {
-    padding: 12px 24px;
-    font-size: 1.1rem;
-    background: #ff6f61;
-    border: none;
-    border-radius: 0 40px 40px 0;
-    color: white;
-    cursor: pointer;
-    font-weight: 700;
-    box-shadow: 0 3px 8px rgba(255, 111, 97, 0.6);
-    transition: background 0.3s ease;
-  }
-  button:hover {
-    background: #ff4a3b;
-  }
-
-  #quote-box {
-    margin-top: 30px;
-    max-width: 500px;
-    background: rgba(255 255 255 / 0.15);
-    padding: 20px 30px;
-    border-radius: 16px;
-    font-size: 1.3rem;
-    font-weight: 600;
-    line-height: 1.4;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-    min-height: 90px;
-    text-align: center;
-  }
-
-  #quote-author {
-    margin-top: 15px;
-    font-size: 1rem;
-    font-weight: 400;
-    color: #ffe3de;
-    opacity: 0.85;
-  }
-
-  /* Responsive */
-  @media (max-width: 480px) {
-    h1 {
-      font-size: 2rem;
-    }
-    .input-group {
+    body {
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: 'Baloo 2', cursive, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
     }
-    input[type="text"], button {
-      border-radius: 40px;
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 6px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    h1.animated {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      font-style: italic;
+      color: #dcdcdc;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .input-group {
+      display: flex;
+      margin-bottom: 20px;
+      max-width: 350px;
       width: 100%;
-      margin-bottom: 10px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    button {
-      border-radius: 40px;
-      margin-bottom: 0;
-    }
-    #quote-box {
-      max-width: 90vw;
+
+    input[type="text"] {
+      flex-grow: 1;
+      padding: 12px 18px;
       font-size: 1.1rem;
+      border-radius: 40px 0 0 40px;
+      border: none;
+      outline: none;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
     }
-  }
-</style>
+
+    button {
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      background: #ff6f61;
+      border: none;
+      border-radius: 0 40px 40px 0;
+      color: white;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 3px 8px rgba(255, 111, 97, 0.6);
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #ff4a3b;
+    }
+
+    #quote-box {
+      margin-top: 30px;
+      max-width: 500px;
+      min-height: 120px;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 10px;
+      border-radius: 16px;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.5;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    #quote-author {
+      margin-top: 15px;
+      font-size: 1rem;
+      font-weight: 400;
+      color: #ffe3de;
+      opacity: 0.85;
+      text-align: center;
+    }
+
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .input-group {
+        flex-direction: column;
+      }
+
+      input[type="text"],
+      button {
+        border-radius: 40px;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      button {
+        border-radius: 40px;
+        margin-bottom: 0;
+      }
+
+      #quote-box {
+        max-width: 90vw;
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<h1>Kamu sedang offline!</h1>
-<h2>Mending cari kata-kata hari ini dulu sambil nunggu</h2>
+  <h1 class="animated">Kamu sedang offline!</h1>
+  <h2>Mending cari kata-kata hari ini dulu sambil nunggu</h2>
 
-<div class="input-group">
-  <input type="text" id="name" placeholder="Masukkan nama kamu..." />
-  <button onclick="showMotivation()">Cari Motivasi</button>
-</div>
+  <div class="input-group">
+    <input type="text" id="name" placeholder="Masukkan nama kamu..." />
+    <button onclick="showMotivation()">Cari Motivasi</button>
+  </div>
 
-<div id="quote-box"></div>
-<div id="quote-author"></div>
+  <div id="quote-box"></div>
+  <div id="quote-author"></div>
 
-<script>
-  const quotes = [
-    { text: "Jika masalahmu berat, itu kan masalahmu, bukan masalah saya.", author: "General Waste" },
-    { text: "Hari ini mungkin berat, tapi besok bisa lebih berat lagi.", author: "Mayor Issue" },
-    { text: "Jangan bermanfaat supaya kamu tidak dimanfaatkan.", author: "Private Message" },
-    { text: "Seburuk buruknya hidupmu, jangan pernah maling besi.", author: "Gagak Medan" },
-    { text: "Kemarin kamu gagal, hari ini gagal, tapi besok.........mungkin kamu gagal lagi", author: "Hiu Bekasi" },
-    { text: "Kamu capek? Sama, saya juga.", author: "Balmond Epic" },
-    { text: "Kalau kamu gak punya uang, jangan minta sama saya, saya juga gak punya.", author: "Beban Keluarga" },
-    { text: "Jangan scrolling mulu, isi job application sana.", author: "Pengangguran" }
-  ];
+  <script>
+    const quotes = [
+      { text: "Jika masalahmu berat, itu kan masalahmu, bukan masalah saya.", author: "General Waste" },
+      { text: "Hari ini mungkin berat, tapi besok bisa lebih berat lagi.", author: "Mayor Issue" },
+      { text: "Jangan bermanfaat supaya kamu tidak dimanfaatkan.", author: "Private Message" },
+      { text: "Seburuk buruknya hidupmu, jangan pernah maling besi.", author: "Gagak Medan" },
+      { text: "Kemarin kamu gagal, hari ini gagal, tapi besok.........mungkin kamu gagal lagi", author: "Hiu Bekasi" },
+      { text: "Kamu capek? Sama, saya juga.", author: "Balmond Epic" },
+      { text: "Kalau kamu gak punya uang, jangan minta sama saya, saya juga gak punya.", author: "Beban Keluarga" },
+      { text: "Jangan scrolling mulu, isi job application sana.", author: "Pengangguran" }
+    ];
 
-  function showMotivation() {
-    const nameInput = document.getElementById('name').value.trim();
-    if (!nameInput) {
-      alert('Masukkan namamu dulu ya!');
-      return;
+    function showMotivation() {
+      const nameInput = document.getElementById('name').value.trim();
+      if (!nameInput) {
+        alert('Masukkan namamu dulu ya!');
+        return;
+      }
+
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      const quote = quotes[randomIndex];
+
+      const quoteBox = document.getElementById('quote-box');
+      const authorBox = document.getElementById('quote-author');
+
+      quoteBox.textContent = `Hai, ${nameInput}! ${quote.text}`;
+      authorBox.textContent = `— ${quote.author}`;
     }
-
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    const quote = quotes[randomIndex];
-
-    const quoteBox = document.getElementById('quote-box');
-    const authorBox = document.getElementById('quote-author');
-
-    quoteBox.textContent = `Hai, ${nameInput}! ${quote.text}`;
-    authorBox.textContent = `— ${quote.author}`;
-  }
-</script>
+  </script>
 
 </body>
+
 </html>
